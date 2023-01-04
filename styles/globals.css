@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--color-primary: 139 92 246;
+		--color-hover: 109 40 217;
+		--color-secondary: 3 60 51;
+		--color-base-100: 255 255 255;
+		--color-base-200: 245 245 245;
+		--color-base-300: 225 225 225;
+		--color-content: 0 0 0;
+		--color-disabled: 64 64 64;
+		--color-error: 239 68 68;
+		--color-success: 34 197 94;
+	}
+}
+
+html,
+body {
+	@apply w-screen h-screen overflow-hidden;
+}
+
+.btn {
+	@apply bg-primary text-base-100 font-bold py-2 px-4 rounded-md hover:bg-hover focus:bg-hover active:bg-hover duration-200 hover:text-base-100 focus:text-base-100 active:text-base-100;
+}

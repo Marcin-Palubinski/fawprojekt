@@ -1,0 +1,22 @@
+.main {
+	@apply h-screen flex flex-col items-center justify-center overflow-hidden gap-20 p-12 text-base;
+}
+
+.title {
+	@apply text-6xl font-semibold;
+}
+
+.form {
+	@apply flex flex-col max-w-lg w-full gap-1;
+}
+
+.submit[type='submit'] {
+	@apply mt-3 text-lg tracking-wide;
+}
+.form input {
+	@apply mb-2;
+}
+
+.button {
+	@apply px-4 py-2;
+}

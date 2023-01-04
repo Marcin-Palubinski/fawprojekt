@@ -1,0 +1,18 @@
+.header {
+	@apply bg-base-100 border-b border-base-300 shadow-md;
+}
+.nav {
+	@apply flex items-center justify-between container h-12 mx-auto p-4;
+}
+.brand {
+	@apply text-xl font-medium text-primary;
+}
+.menu {
+	@apply relative flex items-center justify-center gap-4;
+}
+.menuButton {
+	@apply flex items-center justify-center rounded-full aspect-square p-1 text-content hover:text-base-100 w-10 h-10 hover:bg-primary active:bg-hover focus:bg-hover;
+}
+.menuItems {
+	@apply absolute -right-1 top-14 bg-base-100/25 backdrop-blur border border-base-300 p-2 rounded-md;
+}
