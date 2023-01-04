@@ -9,6 +9,8 @@ const tmpPosts = [
 		userId: 1,
 		createdAt: '2022-05-01T00:00:00.000Z',
 		reactions: [1, 2],
+		user: {},
+		comments: {},
 	},
 	{
 		id: 2,
@@ -17,6 +19,8 @@ const tmpPosts = [
 		userId: 2,
 		createdAt: '2022-05-02T00:00:00.000Z',
 		reactions: [1],
+		user: {},
+		comments: {},
 	},
 ];
 const tmpUsers = [
@@ -38,6 +42,7 @@ const tmpComments = [
 		postId: 1,
 		content: 'Comment 1',
 		createdAt: '2022-05-01T00:00:00.000Z',
+		user: {},
 	},
 	{
 		id: 2,
@@ -45,6 +50,7 @@ const tmpComments = [
 		userId: 2,
 		content: 'Comment 2',
 		createdAt: '2022-05-02T00:00:00.000Z',
+		user: {},
 	},
 	{
 		id: 3,
@@ -52,6 +58,7 @@ const tmpComments = [
 		userId: 1,
 		content: 'Comment 3',
 		createdAt: '2022-05-03T00:00:00.000Z',
+		user: {},
 	},
 ];
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -70,17 +77,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 				}
 				if (options?.comments) {
 					part.forEach((post) => {
-						post.comments = tmpComments.filter(
-							(c) => c.postId === post.id,
-						);
-						post.comments.forEach((comment) => {
-							const user = tmpUsers.find(
-								(u) => u.id === comment.userId,
-							);
-							if (user) {
-								comment.user = user;
-							}
-						});
+						const postComments = tmpComments
+							.filter((c) => c.postId === post.id)
+							.forEach((comment) => {
+								const user = tmpUsers.find(
+									(u) => u.id === comment.userId,
+								);
+								if (user) {
+									comment.user = user;
+								}
+							});
 					});
 				}
 				res.status(200).json({ posts: part });

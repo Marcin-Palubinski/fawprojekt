@@ -65,7 +65,7 @@ const PostRow: NextPage<{ post: Post }> = ({ post }) => {
 					>
 						<div className='w-8 h-8 relative'>
 							<Image
-								src={post?.user?.image}
+								src={post?.user?.image || '/next.svg'}
 								fill
 								className='rounded-full'
 								alt=''
@@ -103,7 +103,7 @@ const CommentComponent: NextPage<{ comment: Comment }> = ({ comment }) => {
 					>
 						<div className='w-8 h-8 relative aspect-square'>
 							<Image
-								src={comment.user?.image}
+								src={comment.user?.image || '/next.svg'}
 								fill
 								className='rounded-full aspect-square'
 								alt=''
@@ -126,7 +126,7 @@ const CommentsComponent: NextPage<{ comments: any }> = ({ comments }) => {
 				Komentarze {comments.length}
 			</Disclosure.Button>
 			<Disclosure.Panel className='text-gray-500 pt-4 w-full'>
-				<div colSpan={2} className='flex gap-2 w-full pb-2'>
+				<div className='flex gap-2 w-full pb-2'>
 					<button>Skomentuj</button>
 					<input
 						type='text'

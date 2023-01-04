@@ -11,7 +11,7 @@ declare module 'fawprojekt' {
 		userId: number;
 		postId: number;
 		createdAt: string;
-		user: UserQuick | null;
+		user: UserQuick;
 	}
 	interface Post {
 		id: number;
@@ -20,7 +20,7 @@ declare module 'fawprojekt' {
 		userId: number;
 		createdAt: string;
 		reactions: Number[];
-		user: UserQuick | null;
-		comments: Array[Comment] | null;
+		user: UserQuick;
+		comments: Array[Comment];
 	}
 }
