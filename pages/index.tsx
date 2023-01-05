@@ -13,11 +13,13 @@ import { Disclosure } from '@headlessui/react';
 export const getServerSideProps: GetServerSideProps = async (
 	ctx: GetServerSidePropsContext,
 ) => {
+	console.log(1);
 	const session = await unstable_getServerSession(
 		ctx.req,
 		ctx.res,
 		authOptions,
 	);
+	console.log(2);
 	if (!session) {
 		return {
 			props: {
@@ -97,8 +99,8 @@ const PostRow: NextPage<{ post: Post }> = ({ post }) => {
 const CommentComponent: NextPage<{ comment: Comment }> = ({ comment }) => {
 	return (
 		<>
-			<tr className='border-t w-full'>
-				<td className='!w-max py-2'>
+			<tr className='border-t w-full text-sm'>
+				<td className='!w-max pt-2'>
 					<Link
 						href={`/users/${comment.userId}`}
 						className='flex items-center w-max'
@@ -111,12 +113,16 @@ const CommentComponent: NextPage<{ comment: Comment }> = ({ comment }) => {
 								alt=''
 							/>
 						</div>
-						<div className='px-2'>{comment.user?.name}</div>
+						<div className='px-2  text-content'>
+							{comment.user?.name}
+						</div>
 					</Link>
 				</td>
 				<td className='w-full'>{comment.content}</td>
 			</tr>
-			<span>{moment(comment.createdAt).startOf('day').fromNow()}</span>
+			<div className='pb-1 text-xs'>
+				{moment(comment.createdAt).startOf('day').fromNow()}
+			</div>
 		</>
 	);
 };
@@ -126,7 +132,7 @@ const CommentsComponent: NextPage<{ comments: any }> = ({ comments }) => {
 	if (!comments.length) return null;
 	return (
 		<Disclosure>
-			<Disclosure.Button className='text-content font-normal text-xs'>
+			<Disclosure.Button className='text-content font-normal text-sm'>
 				Komentarze {comments.length}
 			</Disclosure.Button>
 			<Disclosure.Panel className='text-gray-500 pt-4 w-full'>

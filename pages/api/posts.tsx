@@ -26,12 +26,12 @@ const tmpPosts = [
 const tmpUsers = [
 	{
 		id: 1,
-		name: 'The Guru',
+		name: 'User 1',
 		image: 'https://lh3.googleusercontent.com/a/AEdFTp6HjgI26hZ4-eNLOEAfgJajgRgPq_qS18YslGtx=s96-c',
 	},
 	{
 		id: 2,
-		name: 'The Guru 2',
+		name: 'User 2',
 		image: 'https://lh3.googleusercontent.com/a/AEdFTp6HjgI26hZ4-eNLOEAfgJajgRgPq_qS18YslGtx=s96-c',
 	},
 ];
@@ -77,16 +77,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 				}
 				if (options?.comments) {
 					part.forEach((post) => {
-						const postComments = tmpComments
-							.filter((c) => c.postId === post.id)
-							.forEach((comment) => {
-								const user = tmpUsers.find(
-									(u) => u.id === comment.userId,
-								);
-								if (user) {
-									comment.user = user;
-								}
-							}) as any;
+						const postComments = tmpComments.filter(
+							(c) => c.postId === post.id,
+						);
+						postComments.forEach((comment) => {
+							const user = tmpUsers.find(
+								(u) => u.id === comment.userId,
+							);
+							if (user) {
+								comment.user = user;
+							}
+						}) as any;
 						if (postComments) post.comments = postComments;
 					});
 				}
