@@ -8,7 +8,7 @@ export const authOptions: NextAuthOptions = {
 			clientSecret: process.env.GOOGLE_SECRET as string,
 		}),
 	],
-	secret: process.env.SECRET as string,
+	secret: process.env.NEXTAUTH_SECRET as string,
 	session: {
 		strategy: 'jwt',
 		maxAge: 30 * 24 * 60 * 60, // 30 dni
@@ -16,6 +16,6 @@ export const authOptions: NextAuthOptions = {
 	jwt: {
 		secret: process.env.SECRET as string,
 	},
-}
+};
 
 export default NextAuth(authOptions);
