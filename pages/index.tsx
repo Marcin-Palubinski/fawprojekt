@@ -20,9 +20,9 @@ export const getServerSideProps: GetServerSideProps = async (
 	);
 	if (!session) {
 		return {
-			redirect: {
-				destination: '/signin',
-				permanent: false,
+			props: {
+				user: {},
+				posts: {},
 			},
 		};
 	}
@@ -151,6 +151,8 @@ const CommentsComponent: NextPage<{ comments: any }> = ({ comments }) => {
 };
 
 const Home: NextPage<Props> = ({ user, posts }) => {
+	if (!user) return <>No user</>;
+	if (!posts) return <>No posts</>;
 	return (
 		<>
 			<Head>
