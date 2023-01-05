@@ -26,6 +26,7 @@ export const getServerSideProps: GetServerSideProps = async (
 			},
 		};
 	}
+	console.log(process.env.CURRENTURI);
 	const res = await fetch(`${process.env.CURRENTURI}/api/posts`, {
 		method: 'POST',
 		headers: {
@@ -41,6 +42,7 @@ export const getServerSideProps: GetServerSideProps = async (
 		}),
 	});
 	const data = await res.json();
+	console.log(data);
 	return {
 		props: {
 			user: session.user,
