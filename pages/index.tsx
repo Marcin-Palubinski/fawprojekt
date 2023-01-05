@@ -120,6 +120,8 @@ const CommentComponent: NextPage<{ comment: Comment }> = ({ comment }) => {
 };
 
 const CommentsComponent: NextPage<{ comments: any }> = ({ comments }) => {
+	if (!comments) return null;
+	if (!comments.length) return null;
 	return (
 		<Disclosure>
 			<Disclosure.Button className='text-content font-normal text-xs'>
@@ -135,7 +137,7 @@ const CommentsComponent: NextPage<{ comments: any }> = ({ comments }) => {
 				</div>
 				<table>
 					<tbody>
-						{comments.map((comment: Comment) => (
+						{comments?.map((comment: Comment) => (
 							<CommentComponent
 								key={comment.id}
 								comment={comment}

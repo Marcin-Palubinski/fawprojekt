@@ -86,7 +86,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 								if (user) {
 									comment.user = user;
 								}
-							});
+							}) as any;
+						if (postComments) post.comments = postComments;
 					});
 				}
 				res.status(200).json({ posts: part });
