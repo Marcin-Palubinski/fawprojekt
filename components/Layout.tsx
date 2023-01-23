@@ -20,26 +20,13 @@ const Layout: FC<{
 	if (container) {
 		classes = `${classes} container mx-auto p-8`;
 	}
-
-	if (session && status === 'authenticated') {
-
-		const user = session.user as User;
-
-
-		return (
-			<>
-				<Header user={user} />
-				<main className={classes}>{children}</main>
-				<Footer />
-			</>
-		);
-	}
-	return <>
-		<main className={classes}>
-			{children}
-		</main>
-		<Footer />
-	</>;
+	return (
+		<>
+			{(session && status === 'authenticated') ? <Header user={session.user as User} /> : null}
+			<main className={classes}>{children}</main>
+			<Footer />
+		</>
+	);
 };
 
 export default Layout;
