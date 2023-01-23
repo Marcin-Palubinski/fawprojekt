@@ -34,7 +34,7 @@ const Header: FC<{ user: User; }> = ({ user }) => {
 					href='/'
 					className='text-2xl font-semibold text-primary'
 				>
-					FAWprojekt
+					FAIprojekt
 				</Link>
 				<div className='flex items-center gap-3'>
 					<UserComponent user={user} />

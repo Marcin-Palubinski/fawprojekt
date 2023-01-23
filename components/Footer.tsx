@@ -5,9 +5,9 @@ const Footer = () => {
 		<footer className='h-12 border-t-2 border-neutral-800'>
 			<section className='container mx-auto flex flex-col items-center gap-4 p-4 sm:flex-row'>
 				<h2 className='border-neutral-800 text-xl font-semibold sm:border-r-2 sm:pr-4'>
-					Footer title
+					Projekt zaliczeniowy
 				</h2>
-				<p className='text-xs'>&copy; 2023 Base - @Marcin Pałubiński - @Patryk Modzelewski</p>
+				<p className='text-xs'>&copy;2023 Frontend Aplikacji Internetowych<br /> - @Marcin Pałubiński<br /> - @Patryk Modzelewski</p>
 				<span className='flex items-center gap-4 sm:ml-auto'>
 					<Link href='https://youtube.com'>
 						<svg
