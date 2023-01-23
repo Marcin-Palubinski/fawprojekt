@@ -15,7 +15,7 @@ const Layout: FC<{
 	let classes = className ?? '';
 
 	if (fullScreen) {
-		classes = `${classes} min-h-[calc(100vh-13rem-4px)] sm:min-h-[calc(100vh-8rem-4px)] overflow-x-hidden`;
+		classes = `${classes} min-h-[calc(100vh-14rem-2px)] sm:min-h-[calc(100vh-9rem-2px)] overflow-x-hidden`;
 	}
 	if (container) {
 		classes = `${classes} container mx-auto p-8`;
